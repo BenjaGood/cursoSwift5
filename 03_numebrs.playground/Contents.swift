@@ -27,5 +27,18 @@ let someNumber = 000000097.54
 let oneMillon = 1_000_000
 let justMoreThanAMillion = 1_000_000.000_000_1
 
-let cannotBeNegative: UInt8 = 0
-let tooBig: UInt8 = 200
+//ERRORES DE TIPO DE DATO
+//let cannotBeNegative: UInt8 = -1
+//let tooBig: UInt8.max +1
+
+let twoThousand: UInt16 = 2_000
+let one: UInt8 = 1
+let onePlusTwoThounsand = twoThousand + UInt16(one)
+
+let three = 3
+let decimalNumber = 0.14159
+let piNumb = Double(three) + decimalNumber
+
+let integerPi = Int(piNumb)
+
+
