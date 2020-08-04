@@ -41,4 +41,7 @@ let piNumb = Double(three) + decimalNumber
 
 let integerPi = Int(piNumb)
 
+typealias AudioSample = UInt32
+var maxApmlitude = AudioSample.max
+
 
