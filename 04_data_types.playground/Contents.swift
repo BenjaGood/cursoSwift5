@@ -47,6 +47,45 @@ var serverResponseCode : Int? = 404
 serverResponseCode = nil
 
 var surveyAnswer : String?
-surveyAnswer = "44"
-print(surveyAnswer)
+surveyAnswer = "42"
+
+
+if convertedAge != nil {
+    print("La edad del usuario no es nula \(convertedAge!)")
+}
+else{
+    print("La edad del usuario es nula")
+}
+
+
+if let actualAnswer = surveyAnswer {
+    //Al llegara aqui, survey Answer != nil
+    print("Tiene el valor \(actualAnswer)")
+}
+else{
+    print("es nil...")
+}
+
+
+if let firstNumber = Int("4"),
+    let secondNumber = Int("42"),
+    firstNumber < secondNumber && secondNumber<100{
+    print("\(firstNumber) < \(secondNumber) < 100")
+}
+
+
+let possibleString: String? = "Un string opcional"
+let forcedString: String = possibleString!
+
+let assumedString: String! = "Un string unwrapped de forma implicita apartir de un optional"
+let implicitString: String = assumedString
+
+if assumedString != nil {
+    print(assumedString!)
+}
+
+if let definitiveString = assumedString{
+    print(definitiveString)
+}
+
 
