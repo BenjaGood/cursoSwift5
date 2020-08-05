@@ -35,3 +35,18 @@ print("El codigo del error es \(http404Error.0) y el mesnaje es  \(http404Error.
 
 let http200Status = (statusCode: 200, description: "OK")
 print("El codigo del estado es \(http200Status.statusCode) y el mensaje es \(http200Status.description)")
+
+//EJERCICIO TUPLA
+let myCompleteDates = (name: "Benjamin", lastName: "Gutierrez Mendoza", age: "18", born: "Mexico")
+print("Mi nombre completo es \(myCompleteDates.name) \(myCompleteDates.lastName), tengo \(myCompleteDates.age) y naci en \(myCompleteDates.born).")
+
+let possibleAge = "31"
+let convertedAge = Int(possibleAge) //Int?
+
+var serverResponseCode : Int? = 404
+serverResponseCode = nil
+
+var surveyAnswer : String?
+surveyAnswer = "44"
+print(surveyAnswer)
+
