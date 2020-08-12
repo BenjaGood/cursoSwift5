@@ -72,4 +72,28 @@ let multiplier = 3
 var message = "El producto de \(multiplier) x 3.5 da \(Double(multiplier)*3.5)"
 message.append(exclamationMark)
 
+let greeting = "Hola, ¿que tal?"
+greeting[greeting.startIndex]
+//greeting[greeting.endIndex]
+greeting[greeting.index(before: greeting.endIndex)]
+greeting[greeting.index(after: greeting.startIndex)]
 
+for idx in greeting.indices{
+    print("\(greeting[idx])", terminator : "")
+}
+
+var welcome = "Hola"
+
+welcome.insert("!", at: welcome.endIndex)
+welcome.insert(contentsOf: " que tal", at: welcome.index(before: welcome.endIndex))
+
+welcome.remove(at: welcome.index(before: welcome.endIndex))
+welcome
+let range = welcome.index(welcome.endIndex, offsetBy: -7)..<welcome.endIndex
+welcome.removeSubrange(range)
+
+greeting
+let index = greeting.firstIndex(of: ",") ?? greeting.endIndex
+let firstPart = greeting[..<index]
+
+let newString = String(firstPart)
