@@ -97,3 +97,40 @@ let index = greeting.firstIndex(of: ",") ?? greeting.endIndex
 let firstPart = greeting[..<index]
 
 let newString = String(firstPart)
+
+let newGreeting = "Hola, soy Benjamín"
+newGreeting.hasPrefix("Hola")
+newGreeting.hasSuffix("n")
+
+let collection = [
+     "Act 1 Scene 1", "Act 1 Scene 2", "Act 1 Scene 3", "Act 1 Scene 4", "Act 1 Scene 5",
+     "Act 2 Scene 1", "Act 2 Scene 2", "Act 2 Scene 3",
+     "Act 3 Scene 1", "Act 3 Scene 2"
+]
+var act1SceneCount = 0
+for scene in collection{
+    if scene.hasPrefix("Act 1"){
+        act1SceneCount += 1
+    }
+}
+
+print("\n El numero de escenas del acto 1 es: \(act1SceneCount)")
+
+//UNICODE
+
+let ghost = "¡¡Fantasma!! 👻"
+
+for codeUnit in ghost.utf8{
+    print(codeUnit, terminator: " ")
+}
+
+print(" ")
+for codeUnit in ghost.utf16{
+    print(codeUnit, terminator: " ")
+}
+
+print(" ")
+for codeUnit in ghost.unicodeScalars{
+    print(codeUnit, terminator: " ")
+}
+
