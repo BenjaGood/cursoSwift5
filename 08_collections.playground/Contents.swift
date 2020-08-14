@@ -122,3 +122,58 @@ houseAnimals.isSubset(of: farmAnimals)
 farmAnimals.isSuperset(of: houseAnimals)
 //A y B son disjuntos si no tienen nada en común
 farmAnimals.isDisjoint(with: cityAnimals)
+
+//RETO
+let likedFood: Set = ["🥗", "🍣", "🍗", "🥑"]
+let fruit: Set = ["🥑", "🍑", "🍎", "🍉"]
+let vegetable: Set = ["🥦", "🥕", "🥬"]
+
+likedFood.isSubset(of: fruit)
+likedFood.isSuperset(of: vegetable)
+likedFood.isDisjoint(with: fruit)
+
+//Diccionarios [k1:v1, k2:v2, ...]
+
+//                    [Clave : Valor]
+var namesOfIntegers = [Int: String]()
+namesOfIntegers[15] = "quince"
+namesOfIntegers = [:]
+
+var airports : [String : String] = ["YYZ" : "Toronto",
+                                    "DUB" : "Doublin",
+                                    "PMI" : "Palma de Mallorca"]
+airports.count
+
+airports.isEmpty
+airports["LHR"] = "London City Airport"
+airports
+airports["LHR"] = "London Heathrow"
+airports
+
+if let oldValue = airports.updateValue("Dublin Airport", forKey: "DUB"){
+    print("El aereopuerto tenia antiguamente el nombre de \(oldValue)")
+}
+
+airports
+
+if let airportName = airports["DUB"]{
+    print("El aereopuerto de DUB es : \(airportName)")
+}
+
+airports["PMI"] = nil
+airports
+
+for (key, value) in airports {
+    print("\(key) - \(value)")
+}
+for airportKey in airports.keys {
+    print(airportKey)
+}
+
+for airportName in airports.values {
+    print(airportName)
+}
+
+let airportKeys  = [String](airports.keys.sorted())
+let airportNames = [String](airports.values.sorted()) //EL .SORTED() SE LE AGREGO PARA DARLE UN ORDEN
+
