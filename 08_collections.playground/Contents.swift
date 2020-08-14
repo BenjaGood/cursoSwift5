@@ -60,10 +60,65 @@ for (idx, item) in shoppingList.enumerated(){
     print("Item: \(idx + 1): \(item)")
 }
 
-var gadgetsList = ["Smart Watch", "SmartTV", "Amazon Echo", "iPhone", "MacBook Pro", "AirPods Pro", "SmartBand"]
-for item in gadgetsList{
-    print(item)
+//CONJUNTOS (SET)
+var letters = Set<Character>()
+letters.count
+letters.insert("a")
+letters.insert("h")
+letters.insert("b")
 
-for (idx, item) in gadgetsList.enumerated() {
-    print("Item: \(idx + 1): \(item)")
+var favouriteGames : Set<String> = ["Final Fantasy", "World of Warcraft", "Farcry"]
+//NO HAY ORDEN EN LOS CONJUNTOS
+
+favouriteGames.count
+if favouriteGames.isEmpty{
+   print("No hay juegos favoritos")
 }
+
+favouriteGames.insert("Metal Gear")
+
+if let removedGame  = favouriteGames.remove("Farcry"){
+    print("Se ah eliminado \(removedGame)")
+}else{
+    print("No se puede  eliminar este juego")
+}
+
+if favouriteGames.contains("Metal Gear"){
+    print("Me encanta ese juego")
+}
+
+for vg in favouriteGames.sorted(){
+    print(vg)
+}
+
+//RETO
+var favoriteMovies : Set<String> = ["La vida de Pi", "Coraline", "Baby Driver"]
+favoriteMovies.insert("Coraline")
+favoriteMovies.count
+
+let oddDigits: Set = [1,3,5,7,9]
+let evenDigits: Set = [0,2,4,6,8]
+let primeNumbers: Set = [2,3,5,7]
+
+//A union B = elementos que son o bien A, o bien de B o de los dos
+oddDigits.union(evenDigits).sorted()
+
+//A interseccion B = elementos que son de a la vez de A y de B
+oddDigits.intersection(evenDigits)
+evenDigits.intersection(primeNumbers).sorted()
+oddDigits.intersection(primeNumbers).sorted()
+
+//A  -  B = elementos que son de A, pero no son de B
+oddDigits.subtracting(primeNumbers).sorted()
+
+//A + B = (A-B) U (B-A)
+oddDigits.symmetricDifference(primeNumbers).sorted()
+
+let houseAnimals: Set = ["🦮", "🐈"]
+let farmAnimals: Set = ["🐮", "🐔", "🐑", "🦮", "🐈"]
+let cityAnimals: Set = ["🐁", "🕊"]
+
+houseAnimals.isSubset(of: farmAnimals)
+farmAnimals.isSuperset(of: houseAnimals)
+//A y B son disjuntos si no tienen nada en común
+farmAnimals.isDisjoint(with: cityAnimals)
