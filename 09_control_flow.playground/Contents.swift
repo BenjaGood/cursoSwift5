@@ -84,3 +84,110 @@ if money <= 200 {
 }else{
     print("No tengo dinero, lo siento")
 }
+
+//SWITCH/CASE
+
+let someCharacter: Character = "Z"
+switch someCharacter {
+case "a", "A":
+    print("Es la primera letra del alfabeto")
+case "z", "Z":
+    print("Es la ultima letra del afabeto")
+default:
+    print("Es alguna letra")
+}
+
+let aLetter = "z"
+switch aLetter {
+case "a", "e", "i", "o", "u":
+    print("La letra introducida es una vocal, la vocal es: \(aLetter)")
+case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "ñ", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+    print("La letra introducida es una consonante, la consonante es: \(aLetter)")
+default:
+    print("Error, por favor introduzca un caracter valido.")
+}
+
+let moons = 99
+let phrase = "Lunas en Saturno"
+let naturalCount: String
+switch moons {
+case 0:
+    naturalCount = "No hay"
+case 1..<5:
+    naturalCount = "Hay unas pocas"
+case 5..<12:
+    naturalCount = "Hay bastantes"
+case 12..<100:
+    naturalCount = "Hay decenas de"
+case 100..<100:
+    naturalCount = "Hay centenares"
+    
+default:
+    naturalCount = "Hay infinitas"
+}
+print("\(naturalCount) \(phrase) ")
+
+let borrowMoney = 100
+let reply : String
+switch borrowMoney {
+case 0:
+    print("wtf?")
+case 1..<101:
+    reply = "Te los presto sin problemas"
+case 101..<201:
+    reply = "Esta bien, pero me los pagas la proxima semana"
+case 201..<501:
+    reply = "Me los pagas mañana."
+default:
+    reply = "No, ya es mucho"
+}
+
+let somePoint = (8.9,9)
+switch somePoint {
+case (0,0):
+    print("El punto \(somePoint) es en el origen")
+case (_, 0):
+    print("El punto \(somePoint) se halla en el eje x")
+case (0, _):
+    print("El punto \(somePoint) se halla en el eje y")
+case (-2...2, -2...2):
+    print("El punto \(somePoint), se halla en el interior del lado 4")
+default:
+    print("El punto \(somePoint), esta en algun otro lado")
+}
+//LA _ EN LOS CASOS, SIGNIFICA QUE EN ESA CASILLA PUEDE SER CUALQUIER VALOR...
+
+let anotherPoint = (9, -9)
+switch anotherPoint {
+case (let x, 0):
+    print("Sobre el eje de las x, con valor \(x)")
+case (0, let y):
+    print("Sobre el eje de las y, con valor \(y)")
+case let (x, y) where x == y:
+    print("El punto se halla sobre la recta x=y")
+case let (x,y) where x == -y:
+    print("El punto se halla sobre la recta x=-y")
+case let (x,y):
+    print("En algun otro lugar del plano en (\(x), \(y))")
+}
+
+let anotherSomeCharacter : Character = "z"
+switch anotherSomeCharacter {
+case "a", "e", "i", "o", "u":
+    print("Es una vocal")
+case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "ñ", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+    print("Consonante")
+default:
+    print("Caracter raro")
+}
+
+let sitillAnotherPoint = (9, 0)
+switch sitillAnotherPoint {
+case (let distance, 0), (0, let distance):
+    print("Se halla sobre el eje, a dsitancia \(distance) del origen")
+default:
+    print("No esta en el eje")
+}
+
+
+
