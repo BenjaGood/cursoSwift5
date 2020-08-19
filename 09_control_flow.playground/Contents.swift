@@ -189,5 +189,52 @@ default:
     print("No esta en el eje")
 }
 
+//Control transfer sentences
+let sentence = "Las mentes grandes piensan igual"
+var filteredSentence = " "
+let charactersToRemove:[Character] = ["a", "e", "i", "o", "u"]
+for ch in sentence {
+    if charactersToRemove.contains(ch){
+       continue
+    }
+    filteredSentence.append(ch)
+    if ch == "d"{
+        break
+    }
+}
+filteredSentence
 
+let integerToDeescribe = 19
+var description = "El numero \(integerToDeescribe) es:"
+switch integerToDeescribe {
+case 2,3,5,7,11,13,17,19:
+    description += " un numero primo y"
+    fallthrough
+default:
+    description += " un numero entero"
+}
+
+print(description)
+
+var people = ["name" : "Benjamin", "age" : 31, "isMale" : true] as [String : Any]
+
+func testUserValidation(person:[String : Any]){
+guard let surname = people["surname"] else{
+    return
+}
+    //aqui existe surname
+    print(surname)
+    guard let age = person ["age"] else{
+        return
+    }
+    print("La edad de la persona es \(age)")
+}
+
+testUserValidation(person: people)
+
+if #available(iOS 13, macOS 10.12, *){
+    //   Ejecutar las acciones
+}else{
+    //    Mantener el codigo cpn versiones anteriores
+}
 
