@@ -110,7 +110,61 @@ func mean(_ numbers: Double...) -> Double {
 mean(1,2,3,4,5)
 mean(1,2,3,4,5,6,7,8,9,10.90)
 
-func prom(_ numbers: Double...) -> Double {
-    var result = numbers / numbers
-    return result
+var x = 5
+func addOne(number: Int){
+    var number2 = number
+    number2 += 1
+    print("El numero ahora vale \(number2)")
+}
+addOne(number: x)
+
+func swapTwoInts(_ a: inout Int, _ b: inout Int){
+    let tempA = a
+    a = b
+    b = tempA
+}
+
+var someInt = 3
+var anotherInt = 7
+print("some Int vale \(someInt) y anotherInt vale \(anotherInt)")
+swapTwoInts(&someInt, &anotherInt)
+print("some Int vale \(someInt) y anotherInt vale \(anotherInt)")
+
+func addTwoInts(_ a: Int, _ b: Int) -> Int{
+    return a + b
+} //TIPO DE DATO: (Int, Int) -> Int
+
+func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
+    return a * b
+}//TIPO DE DATO: (Int, Int) -> Int
+
+func printHW(){
+    print("Hello World")
+} //() -> Void
+
+var mathFunction: (Int, Int) -> Int = multiplyTwoInts
+mathFunction(4,5)
+
+func printMathResoult(_ mathfuc:(Int, Int) -> Int, _ a: Int, b: Int){
+    print("Resultado: \(mathFunction(a,b))")
+}
+printMathResoult(mathFunction, 5, b: 9)
+
+func stepFoward(_ input: Int) -> Int {
+    return input + 1
+}
+
+func stepBackward(_ input: Int) -> Int{
+    return input - 1
+}
+
+func chooseStepFunction(backward: Bool) -> (Int) -> Int{
+    return backward ? stepBackward : stepFoward
+}
+
+var value = 9999
+let moveNearerZero = chooseStepFunction(backward: value > 0)
+while value != 0{
+    print("\(value)...")
+    value = moveNearerZero(value)
 }
