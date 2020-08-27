@@ -150,21 +150,24 @@ func printMathResoult(_ mathfuc:(Int, Int) -> Int, _ a: Int, b: Int){
 }
 printMathResoult(mathFunction, 5, b: 9)
 
-func stepFoward(_ input: Int) -> Int {
-    return input + 1
-}
 
-func stepBackward(_ input: Int) -> Int{
-    return input - 1
-}
 
 func chooseStepFunction(backward: Bool) -> (Int) -> Int{
+    func stepFoward(_ input: Int) -> Int {
+        return input + 1
+    }
+
+    func stepBackward(_ input: Int) -> Int{
+        return input - 1
+    }
+    
     return backward ? stepBackward : stepFoward
 }
 
-var value = 9999
+var value = -7
 let moveNearerZero = chooseStepFunction(backward: value > 0)
 while value != 0{
     print("\(value)...")
     value = moveNearerZero(value)
 }
+print("0...")
