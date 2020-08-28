@@ -51,8 +51,56 @@ let numberStrings = numbers.map{ (number) -> String in
             return output
 }
 
-//RETO
-let negativeDigitNames = [0: "Cero", 1: "Menos Uno", 2: "Menos Dos", 3: "Menos Tres", 4: "Menos Cuatro", 5: "Menos Cinco", 6: "Menos Seis", 7: "Menos Siete", 8: "Menos Ocho", 9: "Menos Nueve"]
-let negativeNumbers = [-122, -64, -49, -81]
+func makeIncrementer(forIncrement amount: Int) -> () -> Int {
+    var runningTotal = 0
+    func incremented() -> Int {
+        runningTotal += amount
+        return runningTotal
+    }
+    return incremented
+}
+
+let incrementByTen = makeIncrementer(forIncrement: 10)
+incrementByTen()
+incrementByTen()
+incrementByTen()
+
+let incrementBySeven = makeIncrementer(forIncrement: 7)
+incrementBySeven()
+incrementBySeven()
+incrementByTen()
 
 
+var completionHandlers: [() -> Void] = []
+
+func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void){
+    completionHandlers.append(completionHandler)
+}
+
+completionHandlers.count
+
+func someFunctionWithNonEscapingClosure(clousure: () -> Void){
+    clousure()
+}
+
+class SomeClass{
+var x = 10
+func doSomething(){
+    someFunctionWithEscapingClosure {
+        self.x = 100
+        }
+    someFunctionWithNonEscapingClosure {
+        x = 200
+        }
+    }
+}
+
+let instance = SomeClass()
+print(instance.x)
+
+instance.doSomething()
+print(instance.x)
+
+completionHandlers.count
+completionHandlers.first?()
+print(instance.x)
