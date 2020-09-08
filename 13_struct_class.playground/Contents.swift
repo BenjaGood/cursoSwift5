@@ -53,3 +53,18 @@ currentDirection = .south
 
 print(currentDirection)
 print(oldDirection)
+
+let tenEighty = videoMode()
+tenEighty.resolution = hd
+tenEighty.interlaced = true
+tenEighty.name = "1080i"
+tenEighty.framerate = 25.0
+
+let alsoTenEighty = tenEighty
+alsoTenEighty.framerate = 30.0
+
+if tenEighty === alsoTenEighty{ //!== para decir diferente
+    print("Son el mismo objeto")
+}else{
+    print("Son diferentes")
+}
