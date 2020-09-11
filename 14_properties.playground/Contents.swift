@@ -101,3 +101,68 @@ cuboid.volume
 }
 */
 
+//Property Observers
+//willSet //didSet
+class StepCounter{
+    var totalSteps: Int = 0{
+        willSet(newTotalSteps){
+            print("El numero de pasos subira hasta \(newTotalSteps)")
+        }
+        didSet{
+            if totalSteps > oldValue{
+                print("El numero de pasos ah incrementado en \(totalSteps - oldValue)")
+            }
+        }
+    }
+}
+
+let stepCounter = StepCounter()
+stepCounter.totalSteps = 200
+stepCounter.totalSteps = 320
+
+class LifePlayer{
+    var health: Int = 0{
+        willSet(health){
+            print("Vida al \(health)")
+        }
+        didSet{
+            if health <= 0{
+                print("Game Over")
+            }
+        }
+    }
+}
+
+let lifePlayer = LifePlayer()
+lifePlayer.health = 0
+
+struct SomeStruct{
+    var counter = 0
+    static var storedTypeProperty = "SOME VALUE"
+    static var computedTypeProperty: Int {
+        return 1
+    }
+}
+
+var isntanceStr = SomeStruct()
+
+var otherInstanceStr = SomeStruct()
+SomeStruct.storedTypeProperty
+enum SomeEnum{
+    static var storedTypeProperty = "SomeValue"
+    static var computedTypeProperty: Int{
+        return 5
+    }
+}
+SomeEnum.computedTypeProperty
+
+class SomeClass{
+    static var storedTypeProperty = "Some Value"
+    static var computedTypeProperty : Int{
+        return -9
+    }
+    class var overrideableComputerTypeProperty : Int{
+        return 108
+    }
+}
+//reto aquí
