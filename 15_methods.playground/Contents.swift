@@ -49,3 +49,13 @@ enum DiferrentStateSwitch{
   }
 }
 
+class SomeClass{
+    class func someMethod(){
+        print("Hola")
+    }
+}
+SomeClass.someMethod()
+
+struct LevelTracker{
+    
+}
